@@ -145,12 +145,18 @@ ZMK_LISTENER(led_battery_listener, led_battery_listener_cb);
 ZMK_SUBSCRIPTION(led_battery_listener, zmk_battery_state_changed);
 #endif // IS_ENABLED(CONFIG_ZMK_BATTERY_REPORTING)
 
+static uint8_t init_complete;
+
 void led_process_thread(void) {
     while (true) {
         // 控制间隔时间执行
         k_sleep(K_MSEC(20));
         static uint16_t led_timer_steps = 0;
         led_timer_steps++;
+
+        if (init_complete == 0) {
+            continue;
+        }
 
         if (indicator_state.connection > 0) {
             // color bit:  2: 蓝, 1: 绿, 0: 红.
@@ -207,12 +213,21 @@ K_THREAD_DEFINE(led_process_tid, 1024, led_process_thread, NULL, NULL, NULL, K_L
 void klink_indicator_init_thread(void) {
     // 启动时为未连接状态
     indicator_state.connection = 1;
-    // Initial blink, including USB mode. No explicit way to confirm current BLE advertising state.
-    indicator_state.flash_times = 3*4;
     // 使用下面命令设置蓝牙名称，是一次修改所有连接的。即使是已配对的，也能用此修改。
     // 这个在之后，加入到用上位机或在线驱动，修改蓝牙名称。
     // zmk_ble_set_device_name("Tofu60 v3.0z BLE");
     indicator_state.battery = 111;
+
+    // Init LED
+    indicator_state.flash_times = 0;
+    k_sleep(K_MSEC(500));
+    set_indicator_color(0b100);
+    k_sleep(K_MSEC(500));
+    set_indicator_color(0b011);
+    k_sleep(K_MSEC(500));
+    set_indicator_color(0b110);
+    k_sleep(K_MSEC(500));
+    init_complete = 1;
 }
 //启动时执行，还需要从节能唤醒时也执行。
 K_THREAD_DEFINE(klink_indicator_init_tid, 1024, klink_indicator_init_thread, NULL, NULL, NULL, K_LOWEST_APPLICATION_THREAD_PRIO,
