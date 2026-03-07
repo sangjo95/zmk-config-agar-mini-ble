@@ -80,8 +80,8 @@
 
         layer2 {
             bindings = <
-&trans  &trans             &mkp MCLK       &mmv MOVE_UP    &mkp MB2         &msc SCRL_UP    &msc SCRL_LEFT   &trans        &trans        &trans        &trans  &trans  &trans
-&trans  &mkp MB1           &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &trans
+&trans  &trans             &mkp MCLK       &mmv MOVE_UP    &mkp MB2         &msc SCRL_UP    &msc SCRL_LEFT   &trans        &trans        &trans        &trans  &trans        &trans
+&trans  &mkp MB1           &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans  &bt BT_SEL 4
 &trans  &kp C_VOLUME_DOWN  &kp C_VOL_DN    &kp K_MUTE      &trans           &trans          &trans           &trans        &trans        &trans        &trans  &trans
         &trans             &trans                          &trans                           &trans                                       &trans        &trans
             >;
