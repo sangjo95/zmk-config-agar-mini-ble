@@ -207,8 +207,8 @@ K_THREAD_DEFINE(led_process_tid, 1024, led_process_thread, NULL, NULL, NULL, K_L
 void klink_indicator_init_thread(void) {
     // 启动时为未连接状态
     indicator_state.connection = 1;
-    // 3200ms initial blink, including USB mode. No explicit way to confirm current BLE advertising state.
-    indicator_state.flash_times = 10;
+    // Initial blink, including USB mode. No explicit way to confirm current BLE advertising state.
+    indicator_state.flash_times = 3*4;
     // 使用下面命令设置蓝牙名称，是一次修改所有连接的。即使是已配对的，也能用此修改。
     // 这个在之后，加入到用上位机或在线驱动，修改蓝牙名称。
     // zmk_ble_set_device_name("Tofu60 v3.0z BLE");
