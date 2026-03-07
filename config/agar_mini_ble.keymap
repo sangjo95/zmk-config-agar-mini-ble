@@ -97,7 +97,7 @@
             >;
         };
 
-        layer5 {
+        layer4 {
             bindings = <
 &kp RALT      &kp PLUS         &kp MINUS    &kp ASTERISK  &kp SLASH   &kp PERCENT    &trans     &kp PAGE_UP  &kp PAGE_DOWN  &trans  &trans  &trans  &trans
 &kp QUESTION  &kp AMPERSAND    &kp PIPE     &kp CARET     &kp TILDE   &kp EQUAL      &trans     &kp HOME     &kp END        &trans  &trans  &trans
@@ -106,7 +106,7 @@
             >;
         };
 
-        layer4 {
+        layer5 {
             bindings = <
 &trans  &trans  &kp SQT            &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans  &trans  &trans  &kp C_AL_CAL  &trans  &kp DEL
 &trans  &trans  &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans  &trans  &trans  &trans  &trans  &trans        &trans
