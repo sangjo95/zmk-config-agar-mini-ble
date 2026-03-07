@@ -219,7 +219,7 @@ void klink_indicator_init_thread(void) {
     indicator_state.battery = 111;
 
     // Init LED
-    indicator_state.flash_times = 0;
+    indicator_state.flash_times = 1; // prevent underflow
     k_sleep(K_MSEC(500));
     set_indicator_color(0b100);
     k_sleep(K_MSEC(500));
