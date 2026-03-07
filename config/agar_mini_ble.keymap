@@ -118,7 +118,7 @@
             bindings = <
 &bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &sys_reset   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&soft_off    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
              &trans  &trans          &trans          &trans                  &trans  &trans
             >;
         };
